@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
         <title>SMALC</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
@@ -32,11 +33,38 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Galería</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca De</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contacto</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#login" data-toggle = "modal" data-target= "#login">Ingresar</a></li>
+                        <div id="hide">
+                        <template v-if="!isHidden">
+                        <div class="dropdown" >
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">Nombre<i class="fa fa-caret-down"></i></a></li>
+                          <div id="dropdo" class="dropdown-content">
+                            <a href="#">Lista de alumnos</a>
+                            <a href="#">Modificar alumnos</a>
+                            <a v-on:click="isHidden = !isHidden">Cerrar sesión</a>
+                          </div>
+                        </div>
+                        </template>
+                        <template v-else>
+                            <li class="nav-item mx-0 mx-lg-1">
+                              <button id="btnlogin" class="nav-link py-0 px-0 px-lg-3 rounded font-weight-bold text-uppercase" onclick="document.getElementById('login').style.display='block' " style="width:auto;">Ingresar</button>
+                            </li>
+                        </template>
+                        </div>
                     </ul>
                 </div>
             </div>
         </nav>
+
+        <script>
+          var app = new Vue({
+            el: '#hide',
+            data: {
+              isHidden: false
+            }
+          })
+        </script>
+
+        </script>
         <!-- Masthead-->
         <header id=main class="masthead bg-primary text-white text-center">
             <div class="container d-flex align-items-center flex-column">
@@ -47,14 +75,16 @@
                 <!-- Icon Divider-->
                 <div id=divvv class="divider-custom divider-light">
                     <div id="div1" class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-bolt"></i></div>
-                    <div class="divider-custom-line"></div>
+                    <div class="divider-custom-icon"><i id="bolt" class="fas fa-bolt"></i></div>
+                    <div id="div2" class="divider-custom-line"></div>
                 </div>
             </div>
         </header>
+
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
+
                 <!-- Portfolio Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Galería</h2>
                 <!-- Icon Divider-->
@@ -65,6 +95,7 @@
                 </div>
                 <!-- Portfolio Grid Items-->
                 <div class="row">
+
                     <!-- Portfolio Item 1-->
                     <div class="col-md-6 col-lg-4 mb-5">
                         <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
@@ -160,6 +191,10 @@
                     <div class="divider-custom-line"></div>
                 </div>
                 <!-- Contact Section Form-->
+                <!-- SnapWidget -->
+                <!-- SnapWidget -->
+                <!-- SnapWidget -->
+                <!-- SnapWidget -->
                 <iframe src="https://snapwidget.com/embed/889188" class="snapwidget-widget" allowtransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;  width:615px; height:676px"></iframe>
                 <div class="fb-page" data-href="https://www.facebook.com/SinMiedoAlaCorriente" data-tabs="timeline,events" data-width="" data-height="" data-small-header="false" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/SinMiedoAlaCorriente" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/SinMiedoAlaCorriente">Sin Miedo a la Corriente</a></blockquote></div>
                 <!-- SnapWidget -->
@@ -450,43 +485,15 @@
             </div>
         </div>
 
-        <!-- Modal -->
-        <div id="login" class="modal">
-
-          <form class="modal-content animate" action="/action_page.php" method="post">
-            <div class="imgcontainer">
-              <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
-              <img src="C:\Users\bio86\Downloads\logo.jpg" alt="Avatar" class="avatar">
-            </div>
-
-            <div class="container">
-              <label for="uname"><b>Usuario</b></label>
-              <input type="text" placeholder="Ingresar usuario" name="uname" required>
-
-              <label for="psw"><b>Contraseña</b></label>
-              <input type="password" placeholder="Ingresar contraseña" name="psw" required>
-
-              <button type="submit">Iniciar Sesión</button>
-              <label>
-                <input type="checkbox" checked="checked" name="remember"> Recuerdame
-              </label>
-            </div>
-
-              <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="modal.style.display='none'" class="cancelbtn">Cancelar</button>
-                <span class="psw"> <a href="#">Olvido su constraseña?</a></span>
-              </div>
-            </form>
-          </div>
 
           <!-- Get the modal -->
           <script>
           // Get the modal
-          var modal = document.getElementById('login');
+          var mod = document.getElementById('login');
 
           // When the user clicks anywhere outside of the modal, close it
           window.onclick = function(event) {
-              if (event.target == modal) {
+              if (event.target == mod) {
                   modal.style.display = "none";
               }
           }
@@ -502,6 +509,35 @@
           <script src="assets/mail/contact_me.js"></script>
           <!-- Core theme JS-->
           <script src="js/scripts.js"></script>
+
       </section>
     </body>
+    <!-- Modal -->
+    <div id="login" class="modal">
+
+      <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="C:\Users\bio86\Downloads\logo.jpg" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+          <label for="uname"><b>Usuario</b></label>
+          <input type="text" placeholder="Ingresar usuario" name="uname" required>
+
+          <label for="psw"><b>Contraseña</b></label>
+          <input type="password" placeholder="Ingresar contraseña" name="psw" required>
+
+          <button type="submit">Iniciar Sesión</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Recuerdame
+          </label>
+        </div>
+
+          <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw"> <a href="#"> Olvido su contraseña?</a></span>
+          </div>
+        </form>
+      </div>
 </html>

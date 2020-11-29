@@ -3912,6 +3912,7 @@ input[type=button].btn-block {
 .nav-link:hover, .nav-link:focus {
   text-decoration: none;
 }
+
 .nav-link.disabled {
   color: #6c757d;
   pointer-events: none;
@@ -4023,6 +4024,8 @@ input[type=button].btn-block {
   position: static;
   float: none;
 }
+
+
 
 .navbar-text {
   display: inline-block;
@@ -5414,6 +5417,11 @@ a.close.disabled {
   transition: transform 0.3s ease-out;
   transform: translate(0, -50px);
 }
+
+.modal-backdrop{
+z-index: 0;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .modal.fade .modal-dialog {
     transition: none;
@@ -10085,7 +10093,7 @@ h3 {
   margin-top: 1rem;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link {
-  color: #fff;
+    color: #fff;
 }
 #mainNav .navbar-nav li.nav-item a.nav-link:hover {
   color: #ffc107;
@@ -10374,7 +10382,7 @@ img.avatar {
 }
 
 #main {
-    background-image: url("C:\\Users\\bio86\\Downloads\\background.jpg");
+    background-image: url("C:\\Users\\bio86\\Downloads\\bakk.jpeg ");
     /*background-repeat: no-repeat;
     background-position: center;*/
     background-size: cover;
@@ -10384,6 +10392,113 @@ img.avatar {
 }
 
 #bienv {
-  background-color: #dc3545;
+  text-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
 }
 
+#bolt{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+#bolt::before{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+#div1{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+#div1::before{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+#div2{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+#div2::before{
+  box-shadow: -4px 3px 0 #ffc107, -14px 7px 0 #0a0e27;
+}
+
+.dropbtn {
+  background-color: #dc3545;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #dc3545;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: white;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: #ffc107;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #ffc107;}
+
+#btnlogin {
+  background-color: #dc3545;
+  font-family: inherit;
+  font-size: 16px;
+  text-decoration: none;
+  display: inline-block;
+  line-height: 1.5cm;
+  white-space: nowrap;
+  margin-top: 1px;
+}
+
+
+
+#btnlogin:hover  {
+  color:  #ffc107;
+  border: none
+  /* background: #ffc107; */
+}
+
+#btnlogin:focus  {
+  color:  #fff;
+  border: none;
+  background: #ffc107;
+  border: none;
+  outline: none;
+  /* background: #ffc107; */
+}
+
+
+#btnlogin:active {
+  color:  #fff;
+  border: none;
+  background: #ffc107;
+  border: none;
+  outline: none;
+}
+
+#dropdo {
+  color:  #fff;
+}
+
+
+
+#dropdo:hover  {
+  color:  #fff;
+  border: black;
+  /* background: #ffc107; */
+}

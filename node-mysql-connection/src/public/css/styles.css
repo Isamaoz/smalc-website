@@ -10455,6 +10455,10 @@ img.avatar {
   margin-top: 1px;
 }
 
+#fbb {
+  margin-top: -15px;
+}
+
 
 
 #btnlogin:hover  {
@@ -10491,4 +10495,8 @@ img.avatar {
   color:  #fff;
   border: black;
   /* background: #ffc107; */
+}
+
+#but {
+  align-items: center;
 }

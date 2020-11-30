@@ -5,21 +5,21 @@ module.exports = app => {
   var connection = dbConnection();
 
   app.get('/', (req, res) => {
-    connection.query('SELECT * FROM students', (err, result) => {
+    connection.query('SELECT * FROM credentials', (err, result) => {
       console.log(result);
-      res.render('smalc/mainpage', {
+      res.render('mainpage', {
         links: result
       });
     });
   });
 }
 
-// app.get('/students', (req, res) => {
-//   connection.query('SELECT * FROM students', (err, result) => {
-//     console.log(result);
-//     res.render('smalc/mainpage', {
-//       links: result
-//     });
-//   });
-// });
-// }
+app.get('/add-students', (req, res) => {
+  connection.query('SELECT * FROM students', (err, result) => {
+    console.log(result);
+    res.render('add-students', {
+      studentlist: result
+    });
+  });
+});
+}

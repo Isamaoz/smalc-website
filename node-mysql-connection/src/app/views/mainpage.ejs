@@ -65,7 +65,7 @@
           var app = new Vue({
             el: '#hide',
             data: {
-              isHidden: false
+              isHidden: true
             }
           })
         </script>
@@ -520,17 +520,17 @@
     <!-- Modal -->
     <div id="login" class="modal">
 
-      <form class="modal-content animate" action="auth" method="post">
+      <form class="modal-content animate"action="/" method="post">
         <div class="imgcontainer">
           <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
           <img src="img/logo.png" alt="Avatar" class="avatar">
         </div>
 
         <div class="container">
-          <label for="uname"><b>Usuario</b></label>
+          <label for="username"><b>Usuario</b></label>
           <input type="text" placeholder="Ingresar usuario" name="username" required>
 
-          <label for="psw"><b>Contraseña</b></label>
+          <label for="password"><b>Contraseña</b></label>
           <input type="password" placeholder="Ingresar contraseña" name="password" required>
 
           <button type="submit">Iniciar Sesión</button>

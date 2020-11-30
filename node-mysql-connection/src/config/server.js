@@ -1,6 +1,7 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
+var session = require('express-session');
 
 const app = express();
 
@@ -20,4 +21,11 @@ app.use('/js', express.static(__dirname + '/../public/js'))
 //   res.render('add-students', { text: 'Holiiii'})
 // })
 
+app.use(session({
+	secret: 'secret',
+	resave: true,
+	saveUninitialized: true
+}));
+app.use(bodyParser.urlencoded({extended : true}));
+app.use(bodyParser.json());
 module.exports = app;

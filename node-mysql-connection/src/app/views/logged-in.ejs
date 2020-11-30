@@ -40,7 +40,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Acerca De</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Redes Sociales</a></li>
                         <div class="dropdown" >
-                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">Username<i class="fa fa-caret-down"></i></a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><%= studentlist %><i class="fa fa-caret-down"></i></a></li>
                           <div id="dropdo" class="dropdown-content">
                             <a href="/show-students">Lista de alumnos</a>
                             <a href="/add-students">Modificar alumnos</a>
@@ -70,6 +70,7 @@
 
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
+            <script src="js/scripts.js"></script>
             <div class="container">
 
                 <!-- Portfolio Section Heading-->
@@ -142,6 +143,7 @@
         </section>
         <!-- About Section-->
         <section class="page-section bg-primary text-white mb-0" id="about">
+            <script src="js/scripts.js"></script>
             <div class="container">
                 <!-- About Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-white">Acerca De</h2>
@@ -168,6 +170,7 @@
         </section>
         <!-- Contact Section-->
         <section class="page-section" id="contact">
+            <script src="js/scripts.js"></script>
             <div class="container">
                 <!-- Contact Section Heading-->
                 <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Redes sociales</h2>
@@ -498,32 +501,4 @@
 
       </section>
     </body>
-    <!-- Modal -->
-    <div id="login" class="modal">
-
-      <form class="modal-content animate"action="/" method="post">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="img/logo.png" alt="Avatar" class="avatar">
-        </div>
-
-        <div class="container">
-          <label for="username"><b>Usuario</b></label>
-          <input type="text" placeholder="Ingresar usuario" name="username" required>
-
-          <label for="password"><b>Contraseña</b></label>
-          <input type="password" placeholder="Ingresar contraseña" name="password" required>
-
-          <button type="submit">Iniciar Sesión</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Recuerdame
-          </label>
-        </div>
-
-          <div class="container" style="background-color:#f1f1f1">
-            <button type="button" onclick="document.getElementById('login').style.display='none'" class="cancelbtn">Cancel</button>
-            <span class="psw"> <a href="#"> Olvido su contraseña?</a></span>
-          </div>
-        </form>
-      </div>
 </html>

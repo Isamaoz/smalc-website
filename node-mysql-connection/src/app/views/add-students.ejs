@@ -29,62 +29,57 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="/logged-in/#page-top"><i class="fas fa-bolt"></i> Sin Miedo a la Corriente</a>
+                <a class="navbar-brand js-scroll-trigger" href="/logged-in"><i class="fas fa-bolt"></i> Sin Miedo a la Corriente</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#portfolio">Galería</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#about">Acerca De</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#contact">Redes Sociales</a></li>
-                        <div id="hide">
-                        <template v-if="!isHidden">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Galería</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Acerca De</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Redes Sociales</a></li>
                         <div class="dropdown" >
-                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">Username<i class="fa fa-caret-down"></i></a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><%= studentlist %><i class="fa fa-caret-down"></i></a></li>
                           <div id="dropdo" class="dropdown-content">
                             <a href="/show-students">Lista de alumnos</a>
                             <a href="/add-students">Modificar alumnos</a>
                             <a href="/">Cerrar sesión</a>
                           </div>
                         </div>
-                        </template>
-                        <template v-else>
-                            <li class="nav-item mx-0 mx-lg-1">
-                              <button id="btnlogin" class="nav-link py-0 px-0 px-lg-3 rounded font-weight-bold text-uppercase" onclick="document.getElementById('login').style.display='block' " style="width:auto;">Ingresar</button>
-                            </li>
-                        </template>
-                        </div>
                     </ul>
                 </div>
             </div>
         </nav>
 
-        <script>
-          var app = new Vue({
-            el: '#hide',
-            data: {
-              isHidden: false
-            }
-          })
-        </script>
-
-        </script>
-
-    <h1>Holi</h1>
-
-      <div class="col-md-6 mt-4 card">
-        <form class="card-body" action="/news" method="post">
-          <h3 class="card-title">Add News</h3>
-          <div class="form-group">
-            <input name="title" type="text" class="form-control" placeholder="News Titlte">
-          </div>
-          <div class="form-group">
-            <input name="news" type="text" class="form-control" placeholder="News Content">
-          </div>
-          <input type="submit" class="btn btn-primary">
-        </form>
+      <div class="row justify-content-center" style="margin-top:150px;">
+        <div class="col-md-6 mt-4 card justify-content-center">
+          <form class="card-body" action="/news" method="post">
+            <h3 class="card-title">Agregar alumno</h3>
+            <div class="form-group">
+              <input name="title" type="text" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input name="news" type="text" class="form-control" placeholder="Apellidos">
+            </div>
+            <div class="form-group">
+              <input name="title" type="text" class="form-control" placeholder="Nivel">
+            </div>
+            <div class="form-group">
+              <input name="news" type="text" class="form-control" placeholder="Reingreso">
+            </div>
+            <div class="form-group">
+              <input name="title" type="text" class="form-control" placeholder="Tutor">
+            </div>
+            <div class="form-group">
+              <input name="news" type="text" class="form-control" placeholder="Telefono">
+            </div>
+            <div class="form-group">
+              <input name="title" type="text" class="form-control" placeholder="Comentarios">
+            </div>
+            <input type="submit" class="btn btn-primary">
+          </form>
+        </div>
       </div>
     </div>
   </body>

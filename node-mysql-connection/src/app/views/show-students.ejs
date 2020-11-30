@@ -29,20 +29,20 @@
         <!-- Navigation-->
         <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand js-scroll-trigger" href="/logged-in/#page-top"><i class="fas fa-bolt"></i> Sin Miedo a la Corriente</a>
+                <a class="navbar-brand js-scroll-trigger" href="/logged-in"><i class="fas fa-bolt"></i> Sin Miedo a la Corriente</a>
                 <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars"></i>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#portfolio">Galería</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#about">Acerca De</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#contact">Redes Sociales</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Galería</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Acerca De</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Redes Sociales</a></li>
                         <div id="hide">
                         <template v-if="!isHidden">
                         <div class="dropdown" >
-                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded">Username<i class="fa fa-caret-down"></i></a></li>
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><%= studentlist %><i class="fa fa-caret-down"></i></a></li>
                           <div id="dropdo" class="dropdown-content">
                             <a href="/show-students">Lista de alumnos</a>
                             <a href="/add-students">Modificar alumnos</a>
@@ -87,17 +87,16 @@
             <th>Telefono</th>
             <th>Comentarios</th>
           </tr>
-          <% for (var i = 0; i < studentlist.length; i ++) { %>
+          <% for (var i = 0; i < students.length; i ++) { %>
             <tr>
-              <td><%= studentlist[i].id %></td>
-              <td><%= studentlist[i].Nombre %></td>
-              <td><%= studentlist[i].Apellidos %></td>
-              <td><%= studentlist[i].Nivel %></td>
-              <td v-if="<% studentlist[i].Reingreso == 0%>">No</td>
-              <td v-else>Sí</td>
-              <td><%= studentlist[i].Tutor %></td>
-              <td><%= studentlist[i].Telefono %></td>
-              <td><%= studentlist[i].Comentarios %></td>
+              <td><%= students[i].id %></td>
+              <td><%= students[i].Nombre %></td>
+              <td><%= students[i].Apellidos %></td>
+              <td><%= students[i].Nivel %></td>
+              <td><%= students[i].Reingreso %></td>
+              <td><%= students[i].Tutor %></td>
+              <td><%= students[i].Telefono %></td>
+              <td><%= students[i].Comentarios %></td>
             </tr>
           <% } %>
         </table>

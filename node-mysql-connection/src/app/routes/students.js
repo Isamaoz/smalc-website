@@ -1,6 +1,9 @@
 var dbConnection = require('../../config/dbConnection');
 //console.log(dbConnection);
 
+var username = "";
+
+
 module.exports = app => {
   var connection = dbConnection();
 
@@ -14,7 +17,7 @@ module.exports = app => {
   });
 
   app.post('/',function(request, response){
-    var username = request.body.username;
+    username = request.body.username;
     var password = request.body.password;
     console.log(username)
     if (username && password){
@@ -22,7 +25,7 @@ module.exports = app => {
             if (results.length > 0) {
                 request.session.loggedin = true;
                 request.session.username = username;
-                response.redirect('../logged-in');
+                response.render('logged-in', { studentlist : username})
             } else {
                 response.send('Incorrect Username and/or Password!');
             }
@@ -35,32 +38,55 @@ module.exports = app => {
 
   })
 
-app.get('/add-students', (req, res) => {
-  connection.query('SELECT * FROM students', (err, result) => {
-    console.log(result);
-    res.render('add-students', {
-      ss: result
+app.get('/add-students', (request, response) => {
+  if(request.session.loggedin == true) {
+    connection.query('SELECT * FROM students', (err, result) => {
+      console.log(result);
+      response.render('add-students', {
+        studentlist: request.session.username
+      });
     });
-  });
+  } else {
+    response.send('Access DENIED');
+  }
 });
 
-app.get('/show-students', (req, res) => {
-  connection.query('SELECT * FROM students', (err, result) => {
-    console.log(result);
-    res.render('show-students', {
-      studentlist: result
+app.get('/show-students', (request, response) => {
+  if(request.session.loggedin == true) {
+    connection.query('SELECT * FROM students', (err, result) => {
+      console.log(request.session.username);
+      response.render('show-students', {
+        studentlist: request.session.username,
+        students : result
+      });
     });
-  });
+  } else {
+    response.send('Access DENIED');
+  }
 });
 
-app.get('/logged-in', (req, res) => {
-  connection.query('SELECT * FROM students', (err, result) => {
-    console.log(result);
-    res.render('logged-in ', {
-      studentlist: result
+app.get('/logged-in', (request, response) => {
+  if(request.session.loggedin == true) {
+    connection.query('SELECT * FROM students', (err, result) => {
+      console.log(result);
+      response.render('logged-in', {
+        studentlist: request.session.username
+      });
     });
-  });
+  } else {
+    response.send('Access DENIED');
+  }
 });
+
+// app.get('/logged-in/#about', (req, res) => {
+//   connection.query('SELECT * FROM students', (err, result) => {
+//     console.log(result);
+//     const newLocal = username;
+//     res.render('logged-in/#about', {
+//       studentlist: newLocal
+//     });
+//   });
+// });
 
 const getByUsername = (pUser) => {
   return new Promise((resolve,reject) => {

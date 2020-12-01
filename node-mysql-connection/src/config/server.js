@@ -4,10 +4,11 @@ const bodyParser = require('body-parser');
 const router = express.Router();
 var session = require('express-session');
 const stud = require('../app/routes/students')
-const bcrypt = require('bcrypt')
 const jwt = require('jwt-simple')
 const moment = require('moment');
+const flash = require('connect-flash');
 const app = express();
+
 
 router.get('/', async(req,res) => {
 	const students = await stud.getAll();
@@ -36,5 +37,13 @@ app.use(session({
 }));
 
 app.use(bodyParser.urlencoded({extended : true}));
+app.use(flash());
+app.use((req,res,next)=> {
+  res.locals.success_msg = req.flash('success_msg');
+  res.locals.error_msg = req.flash('error_msg');
+  res.locals.error  = req.flash('error');
+next();
+})
+
 app.use(bodyParser.json());
 module.exports = app;

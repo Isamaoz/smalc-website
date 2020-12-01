@@ -1,17 +1,38 @@
 var dbConnection = require('../../config/dbConnection');
 //console.log(dbConnection);
 
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+const myPlaintextPassword = 'password';
+const someOtherPlaintextPassword = 'popopo!';
+const Swal = require('sweetalert2') 
+
 var username = "";
+var connection = dbConnection();
+
+//var post  = {username: 1, password: hash};
+// var query = connection.query('INSERT INTO posts SET ?', post, function(err, result) {
+//   // Neat!
+//   console.log('Error')
+// });
 
 
 module.exports = app => {
-  var connection = dbConnection();
 
+  bcrypt.hash(myPlaintextPassword, saltRounds, function(err, hash) {
+    // Store hash in your password DB.
+    var post  = {username: 'nany', password: hash};
+    console.log(hash);
+    connection.query('INSERT INTO credentials SET ?', 
+      post, (err, result) => {
+        console.log('Error')
+      });
+  });
   app.get('/', (req, res) => {
     connection.query('SELECT * FROM credentials', (err, result) => {
       console.log(result);
       res.render('mainpage', {
-        links: result
+        links: false
       });
     });
   });
@@ -26,8 +47,13 @@ module.exports = app => {
                 request.session.loggedin = true;
                 request.session.username = username;
                 response.render('logged-in', { studentlist : username})
-            } else {
-                response.send('Incorrect Username and/or Password!');
+            } else { /// Pendiente la alerta de fallo de login
+                //response.send('Incorrect Username and/or Password!');
+                //response.render('mainpage')
+                request.flash('success_msg','You have now registered!')
+                response.render('mainpage', { links : true})
+                Swal.fire('Incorrect Username and/or Password!') // en teoria esta es alerta
+                console.log('login failed')
             }
             response.end();
         });

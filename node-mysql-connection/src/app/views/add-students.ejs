@@ -44,7 +44,7 @@
                           <div id="dropdo" class="dropdown-content">
                             <a href="/show-students">Lista de alumnos</a>
                             <a href="/add-students">Modificar alumnos</a>
-                            <a href="/">Cerrar sesión</a>
+                            <a href="/logout">Cerrar sesión</a>
                           </div>
                         </div>
                     </ul>
@@ -54,28 +54,38 @@
 
       <div class="row justify-content-center" style="margin-top:150px;">
         <div class="col-md-6 mt-4 card justify-content-center">
-          <form class="card-body" action="/news" method="post">
+          <form class="card-body" action="/add-students" method="post">
             <h3 class="card-title">Agregar alumno</h3>
             <div class="form-group">
-              <input name="title" type="text" class="form-control" placeholder="Nombre">
+              <input name="Nombre" type="text" class="form-control" placeholder="Nombre">
             </div>
             <div class="form-group">
-              <input name="news" type="text" class="form-control" placeholder="Apellidos">
+              <input name="Apellidos" type="text" class="form-control" placeholder="Apellidos">
             </div>
             <div class="form-group">
-              <input name="title" type="text" class="form-control" placeholder="Nivel">
+              <input name="Tutor" type="text" class="form-control" placeholder="Tutor">
             </div>
             <div class="form-group">
-              <input name="news" type="text" class="form-control" placeholder="Reingreso">
+              <input name="Telefono" type="text" class="form-control" placeholder="Telefono">
             </div>
             <div class="form-group">
-              <input name="title" type="text" class="form-control" placeholder="Tutor">
+              <input name="Comentarios" type="text" class="form-control" placeholder="Comentarios">
             </div>
             <div class="form-group">
-              <input name="news" type="text" class="form-control" placeholder="Telefono">
+              <h6>Nivel</h6>
+              <input name="Nivel" type="radio" id="Nivel1" value="Nivel1">
+              <label for="Nivel1">Nivel 1</label><br>
+              <input name="Nivel" type="radio" id="Nivel2" value="Nivel2">
+              <label for="Nivel2">Nivel 2</label><br>
+              <input name="Nivel" type="radio" id="Nivel3" value="Nivel3">
+              <label for="Nivel3">Nivel 3</label><br>
             </div>
             <div class="form-group">
-              <input name="title" type="text" class="form-control" placeholder="Comentarios">
+              <h6>Reingreso</h6>
+              <input name="Reingreso" type="radio" id="R1" value="Reingreso">
+              <label for="Reingreso">Sí</label><br>
+              <input name="Reingreso" type="radio" id="R0" value="Reingreso">
+              <label for="Reingreso">No</label><br>
             </div>
             <input type="submit" class="btn btn-primary">
           </form>

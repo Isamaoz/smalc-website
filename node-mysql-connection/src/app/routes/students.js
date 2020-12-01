@@ -1,4 +1,5 @@
 var dbConnection = require('../../config/dbConnection');
+const bodyParser = require('body-parser');
 //console.log(dbConnection);
 
 const bcrypt = require('bcrypt');
@@ -66,21 +67,23 @@ module.exports = app => {
 
 app.get('/add-students', (request, response) => {
   if(request.session.loggedin == true) {
-    connection.query('SELECT * FROM students', (err, result) => {
-      console.log(result);
-      response.render('add-students', {
+    response.render('add-students', {
         studentlist: request.session.username
       });
-    });
   } else {
     response.send('Access DENIED');
   }
 });
 
+app.get('/logout', (request, response) => {
+  request.session.destroy();
+  response.render('mainpage')
+});
+
 app.get('/show-students', (request, response) => {
   if(request.session.loggedin == true) {
     connection.query('SELECT * FROM students', (err, result) => {
-      console.log(request.session.username);
+      console.log(result);
       response.render('show-students', {
         studentlist: request.session.username,
         students : result
@@ -122,5 +125,21 @@ const getByUsername = (pUser) => {
       });
   });
 };
+
+app.post('/add-students', (req, res) => {
+  const { Nombre, Apellidos, Tutor, Telefono, Comentarios, Nivel, Reingreso } = req.body;
+  // console.log(req.body)
+  connection.query('INSERT INTO news SET ? ',
+    {
+      Nombre, Apellidos, Tutor, Telefono, Comentarios, Nivel, Reingreso
+    }
+  , (err, result) => {
+    console.log('Hubo error')
+    res.redirect('/add-students');
+  });
+});
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
 
 }

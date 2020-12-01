@@ -35,8 +35,6 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
-
-app.use(bodyParser.urlencoded({extended : true}));
 app.use(flash());
 app.use((req,res,next)=> {
   res.locals.success_msg = req.flash('success_msg');
@@ -46,4 +44,5 @@ next();
 })
 
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended : true}));
 module.exports = app;

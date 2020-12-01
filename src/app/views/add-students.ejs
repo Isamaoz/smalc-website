@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <title>SMALC</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link rel="stylesheet" type="text/css"   href="/css/styles.css">
+    </head>
+    <style>
+    #main {
+        background-image: url("img/bakk.jpeg");
+        background-size: cover;
+    }
+    </style>
+    <body id="page-top">
+      <div id="fb-root"></div>
+      <script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v9.0" nonce="ZIPCz1S2"></script>
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="/logged-in"><i class="fas fa-bolt"></i> Sin Miedo a la Corriente</a>
+                <button class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    Menu
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Galería</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Acerca De</a></li>
+                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/logged-in">Redes Sociales</a></li>
+                        <div class="dropdown" >
+                          <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded"><%= studentlist %><i class="fa fa-caret-down"></i></a></li>
+                          <div id="dropdo" class="dropdown-content">
+                            <a href="/show-students">Lista de alumnos</a>
+                            <a href="/add-students">Modificar alumnos</a>
+                            <a href="/logout">Cerrar sesión</a>
+                          </div>
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+      <div class="row justify-content-center" style="margin-top:150px;">
+        <div class="col-md-6 mt-4 card justify-content-center">
+          <form class="card-body" action="/add-students" method="post">
+            <h3 class="card-title">Agregar alumno</h3>
+            <div class="form-group">
+              <input name="Nombre" type="text" class="form-control" placeholder="Nombre">
+            </div>
+            <div class="form-group">
+              <input name="Apellidos" type="text" class="form-control" placeholder="Apellidos">
+            </div>
+            <div class="form-group">
+              <input name="Tutor" type="text" class="form-control" placeholder="Tutor">
+            </div>
+            <div class="form-group">
+              <input name="Telefono" type="text" class="form-control" placeholder="Telefono">
+            </div>
+            <div class="form-group">
+              <input name="Comentarios" type="text" class="form-control" placeholder="Comentarios">
+            </div>
+            <div class="form-group">
+              <h6>Nivel</h6>
+              <input name="Nivel" type="radio" id="Nivel1" value="Nivel1">
+              <label for="Nivel1">Nivel 1</label><br>
+              <input name="Nivel" type="radio" id="Nivel2" value="Nivel2">
+              <label for="Nivel2">Nivel 2</label><br>
+              <input name="Nivel" type="radio" id="Nivel3" value="Nivel3">
+              <label for="Nivel3">Nivel 3</label><br>
+            </div>
+            <div class="form-group">
+              <h6>Reingreso</h6>
+              <input name="Reingreso" type="radio" id="R1" value="Reingreso">
+              <label for="Reingreso">Sí</label><br>
+              <input name="Reingreso" type="radio" id="R0" value="Reingreso">
+              <label for="Reingreso">No</label><br>
+            </div>
+            <input type="submit" class="btn btn-primary">
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+  <!-- Third party plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+  <!-- Contact form JS-->
+  <!-- <script src="assets/mail/jqBootstrapValidation.js"></script>
+  <script src="assets/mail/contact_me.js"></script> -->
+  <!-- Core theme JS-->
+  <script src="js/scripts.js"></script>
+</html>
